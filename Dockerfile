@@ -2,7 +2,7 @@
 #   https://github.com/fedora-cloud/Fedora-Dockerfiles
 #
 # Originally written for Fedora-Dockerfiles by others
-FROM centos:dockerkid
+FROM centos:centos7
 
 RUN yum -y update; yum clean all
 RUN yum -y install epel-release
