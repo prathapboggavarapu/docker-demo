@@ -1,13 +1,10 @@
-# "posted" by prathap <maxamillion@mail2bprathap@gmail.com> from
-#   https://github.com/fedora-cloud/Fedora-Dockerfiles
-#
-# Originally written for Fedora-Dockerfiles by others
+
 FROM centos:centos7
 
-RUN yum -y update; yum clean all
-RUN yum -y install epel-release
-RUN yum -y install python-pip python-django git sqlite; yum clean all
+#copying myscript.sh to docker image
+COPY ./myscript.sh /tmp
 
-EXPOSE 8000
+##modfying thepermission for myscript.sh
+RUN chmod u+x /tmp/myscript.sh
 
-CMD [ "/bin/bash" ]
+CMD [ "sh","/tmp/myscript.sh" ]
